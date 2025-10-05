@@ -233,7 +233,6 @@ body {
     position: relative;
 }
 
-/* Syntax highlighting para JSON */
 .json-code .json-key {
     color: #9cdcfe;
     font-weight: 500;
@@ -276,7 +275,6 @@ body {
     font-weight: bold;
 }
 
-/* Melhorias visuais */
 .json-code::before {
     content: 'JSON';
     position: absolute;
@@ -314,7 +312,6 @@ body {
     transform: translateY(0);
 }
 
-/* Proteções contra cópia */
 .no-select {
     -webkit-user-select: none !important;
     -moz-user-select: none !important;
@@ -360,7 +357,6 @@ body {
     pointer-events: auto;
 }
 
-/* Desabilitar menu de contexto no JSON */
 .json-code.no-copy::-webkit-scrollbar {
     width: 10px;
 }

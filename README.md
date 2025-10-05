@@ -285,12 +285,14 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ---
 
-<div align="center">
-  <img src="src/images/bg.png" alt="Background Demo" width="600" style="border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);"/>
+<div style="display: flex; align-items: center; gap: 20px;">
+  <img src="src/images/bg.png" alt="Background Demo" width="300" style="border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);"/>
   
-  <h3>✨ Transforme suas ideias em realidade com Fundo Mágico ✨</h3>
-  
-  <p>
-    <a href="#🎨-fundo-mágico">🔝 Voltar ao topo</a>
-  </p>
+  <div>
+    <h3>✨ Transforme suas ideias em realidade com Fundo Mágico ✨</h3>
+    
+    <p>
+      <a href="#🎨-fundo-mágico">🔝 Voltar ao topo</a>
+    </p>
+  </div>
 </div>
