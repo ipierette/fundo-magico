@@ -1,0 +1,394 @@
+// JSON da automação N8N
+const n8nWorkflowJSON = {
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "gerador-fundo",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -320,
+        16
+      ],
+      "id": "63a096c6-9a0c-47af-a218-b912c8d6987d",
+      "name": "Webhook",
+      "webhookId": "69e820fb-9e1a-4b04-b9ac-11b3d15750c6"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={{ $json.output }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        544,
+        16
+      ],
+      "id": "d62295cf-505f-4f6c-938b-095ae1ce33f1",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body.description }}",
+        "options": {
+          "systemMessage": "Gerador de Animações de FUNDO DE PAGINA CSS\nCrie uma animação CSS de FUNDO DE SITE e responda somente com este formato, em json puro\n\n{\n\"code\": \"HTML gerado\",\n\"preview\": \"<div class=\"bg\"></div>\n<div class=\"bg bg2\"></div>\n<div class=\"bg bg3\"></div>\",\n\"style\": \"CSS puro\"\n}\n\nExemplo de fundo animado\n\n{\ncode: \"<div class=\"bg\"></div>\n<div class=\"bg bg2\"></div>\n<div class=\"bg bg3\"></div>\",\n\nstyle:\"html {\n  height:100%;\n}\n\nbody {\n  margin:0;\n}\n\n.bg {\n  animation:slide 3s ease-in-out infinite alternate;\n  background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);\n  bottom:0;\n  left:-50%;\n  opacity:.5;\n  position:fixed;\n  right:-50%;\n  top:0;\n  z-index:-1;\n}\n\n.bg2 {\n  animation-direction:alternate-reverse;\n  animation-duration:4s;\n}\n\n.bg3 {\n  animation-duration:5s;\n}\n\n.content {\n  background-color:rgba(255,255,255,.8);\n  border-radius:.25em;\n  box-shadow:0 0 .25em rgba(0,0,0,.25);\n  box-sizing:border-box;\n  left:50%;\n  padding:10vmin;\n  position:fixed;\n  text-align:center;\n  top:50%;\n  transform:translate(-50%, -50%);\n}\n\nh1 {\n  font-family:monospace;\n}\n\n@keyframes slide {\n  0% {\n    transform:translateX(-25%);\n  }\n  100% {\n    transform:translateX(25%);\n  }\n}\"\n}\n\nREGRAS:\nSem quebras de linha\nUse aspas simples dentro das strings\nAnimações coloridas e impressionantes\nCódigo simples com visual marcante\nse atente pra criar todas os elementos html que você definiu nas classes css e vice versa\nnão retorne nenhuma div ou estilo com loader, ou classe loader\nnão retorne nenhuma propriedade com overflow"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        -80,
+        16
+      ],
+      "id": "0ee1e175-a640-46cd-b762-e7f1576bed8b",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -80,
+        224
+      ],
+      "id": "1a429280-ed04-4634-a1f8-6ede28ac7d58",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "7aklvx0kDAzx1API",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nconst output = $input.first().json.output.replace(\"json\",\"\").replaceAll(\"`\",\"\").replaceAll(\"\\n\",\"\");\n\nreturn {output};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        272,
+        16
+      ],
+      "id": "5c1c8831-dbf5-4755-b62c-f5e28eccd962",
+      "name": "Code in JavaScript"
+    }
+  ],
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "robertodias123.app.n8n.cloud",
+            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+            "content-length": "24",
+            "accept": "*/*",
+            "accept-encoding": "gzip, br",
+            "accept-language": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7",
+            "cdn-loop": "cloudflare; loops=1; subreqs=1",
+            "cf-connecting-ip": "2804:14d:4cd0:420a:d1ae:4749:6f1c:aab4",
+            "cf-ew-via": "15",
+            "cf-ipcountry": "BR",
+            "cf-ray": "9898d8a611c8f1f3-GRU",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "cf-worker": "n8n.cloud",
+            "content-type": "application/json",
+            "origin": "http://127.0.0.1:5500",
+            "priority": "u=1, i",
+            "referer": "http://127.0.0.1:5500/",
+            "sec-ch-ua": "\"Chromium\";v=\"140\", \"Not=A?Brand\";v=\"24\", \"Google Chrome\";v=\"140\"",
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": "\"Windows\"",
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "cross-site",
+            "x-forwarded-for": "2804:14d:4cd0:420a:d1ae:4749:6f1c:aab4, 172.69.138.8",
+            "x-forwarded-host": "robertodias123.app.n8n.cloud",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "traefik-prod-users-gwc-74-67bd674f6f-5vf92",
+            "x-is-trusted": "yes",
+            "x-real-ip": "2804:14d:4cd0:420a:d1ae:4749:6f1c:aab4"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "description": "gradiente azul claro para azul escuro"
+          },
+          "webhookUrl": "https://robertodias123.app.n8n.cloud/webhook-test/gerador-fundo",
+          "executionMode": "test"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Respond to Webhook": {
+      "main": [
+        []
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "8ee2d7d9-1404-44c7-bd3e-3e6d2b807c11",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "12f6c8a3aa54e31a74a91b809f5f3fd57c2b293972bd3df3f1e38b9a61fb1481"
+  },
+  "id": "8cDYON6SnQE07NnC",
+  "tags": []
+};
+
+
+const n8nBtn = document.getElementById('n8n-btn');
+const modal = document.getElementById('n8n-modal');
+const closeBtn = document.querySelector('.close');
+const copyBtn = document.getElementById('copy-json');
+const jsonCodeElement = document.getElementById('json-code');
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  
+    const formattedJson = JSON.stringify(n8nWorkflowJSON, null, 2);
+    jsonCodeElement.innerHTML = syntaxHighlight(formattedJson);
+    
+   
+    protectJsonCode();
+
+   
+    n8nBtn.addEventListener('click', function() {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; 
+    });
+
+  
+    closeBtn.addEventListener('click', function() {
+        closeModal();
+    });
+
+    
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+
+  
+    copyBtn.addEventListener('click', function() {
+        const jsonText = JSON.stringify(n8nWorkflowJSON, null, 2);
+        
+     
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(jsonText).then(function() {
+                showCopySuccess();
+            }).catch(function(err) {
+                console.error('Erro ao copiar: ', err);
+                fallbackCopyTextToClipboard(jsonText);
+            });
+        } else {
+        
+            fallbackCopyTextToClipboard(jsonText);
+        }
+    });
+
+   
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && modal.style.display === 'block') {
+            closeModal();
+        }
+    });
+});
+
+
+function closeModal() {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto'; 
+}
+
+
+function fallbackCopyTextToClipboard(text) {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.style.top = "0";
+    textArea.style.left = "0";
+    textArea.style.position = "fixed";
+    textArea.style.opacity = "0";
+
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+
+    try {
+        const successful = document.execCommand('copy');
+        if (successful) {
+            showCopySuccess();
+        } else {
+            showCopyError();
+        }
+    } catch (err) {
+        console.error('Fallback: Erro ao copiar', err);
+        showCopyError();
+    }
+
+    document.body.removeChild(textArea);
+}
+
+
+function showCopySuccess() {
+    const originalText = copyBtn.textContent;
+    copyBtn.textContent = '✅ JSON Copiado!';
+    copyBtn.style.background = 'linear-gradient(90deg, #28a745 0%, #20c997 100%)';
+    
+    setTimeout(() => {
+        copyBtn.textContent = originalText;
+        copyBtn.style.background = 'linear-gradient(90deg, #28a745 0%, #20c997 100%)';
+    }, 2000);
+}
+
+
+function showCopyError() {
+    const originalText = copyBtn.textContent;
+    copyBtn.textContent = '❌ Erro ao copiar';
+    copyBtn.style.background = 'linear-gradient(90deg, #dc3545 0%, #c82333 100%)';
+    
+    setTimeout(() => {
+        copyBtn.textContent = originalText;
+        copyBtn.style.background = 'linear-gradient(90deg, #28a745 0%, #20c997 100%)';
+    }, 2000);
+}
+
+
+function protectJsonCode() {
+    const jsonElement = document.getElementById('json-code');
+    
+
+    jsonElement.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        return false;
+    });
+    
+
+    jsonElement.addEventListener('selectstart', function(e) {
+        e.preventDefault();
+        return false;
+    });
+    
+ 
+    jsonElement.addEventListener('dragstart', function(e) {
+        e.preventDefault();
+        return false;
+    });
+    
+
+    jsonElement.addEventListener('keydown', function(e) {
+
+        if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 65 || e.keyCode === 83)) {
+            e.preventDefault();
+            return false;
+        }
+        if (e.keyCode === 123) {
+            e.preventDefault();
+            return false;
+        }
+        if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+            e.preventDefault();
+            return false;
+        }
+    });
+    
+
+    document.addEventListener('keydown', function(e) {
+        if (modal.style.display === 'block') {
+            if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 65 || e.keyCode === 83)) {
+                if (e.target === jsonElement || jsonElement.contains(e.target)) {
+                    e.preventDefault();
+                    return false;
+                }
+            }
+        }
+    });
+}
+
+
+function syntaxHighlight(json) {
+    if (typeof json != 'string') {
+        json = JSON.stringify(json, undefined, 2);
+    }
+    
+    json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    
+    return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+        let cls = 'json-number';
+        if (/^"/.test(match)) {
+            if (/:$/.test(match)) {
+                cls = 'json-key';
+            } else {
+                cls = 'json-string';
+            }
+        } else if (/true|false/.test(match)) {
+            cls = 'json-boolean';
+        } else if (/null/.test(match)) {
+            cls = 'json-null';
+        }
+        return '<span class="' + cls + '">' + match + '</span>';
+    }).replace(/(\{|\})/g, '<span class="json-brace">$1</span>')
+      .replace(/(\[|\])/g, '<span class="json-bracket">$1</span>')
+      .replace(/,/g, '<span class="json-comma">,</span>')
+      .replace(/:/g, '<span class="json-colon">:</span>');
+}

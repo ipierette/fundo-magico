@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana do Zero ao Programador Contratado - Fundo Mágico</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="src/css/reset.css">
+
+    <link rel="stylesheet" href="src/css/estilos.css">
+
+    <link rel="stylesheet" href="src/css/responsivo.css">
+</head>
+
+<body>
+    <button id="n8n-btn" class="n8n-button">
+        <svg class="n8n-icon" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+            <path d="M240,240H0V0H240V240Z" fill="#ff6d5a"/>
+            <path d="M156.5,68.5h-54c-18.7,0-34,15.3-34,34v54c0,18.7,15.3,34,34,34h54c18.7,0,34-15.3,34-34v-54C190.5,83.8,175.2,68.5,156.5,68.5z M171.5,156.5c0,8.3-6.7,15-15,15h-54c-8.3,0-15-6.7-15-15v-54c0-8.3,6.7-15,15-15h54c8.3,0,15,6.7,15,15V156.5z" fill="white"/>
+            <circle cx="129.5" cy="102.5" r="10" fill="white"/>
+            <circle cx="129.5" cy="137.5" r="10" fill="white"/>
+        </svg>
+        Veja minha automação do n8n
+    </button>
+
+    <div id="n8n-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Automação N8N - Gerador de Fundo Mágico</h2>
+            <p><strong>⚠️ Aviso Importante:</strong> Esta aplicação utiliza uma conta gratuita do n8n que nem sempre pode ser reativada. Caso não funcione, ao menos deixo o JSON abaixo como prova de trabalho!</p>
+            
+            <div class="json-container">
+                <h3>Código da Automação:</h3>
+                <div class="json-protection">
+                    <pre id="json-code" class="json-code no-select no-copy"></pre>
+                    <div class="copy-overlay">Use o botão abaixo para copiar</div>
+                </div>
+            </div>
+            
+            <button id="copy-json" class="copy-btn">📋 Copiar JSON</button>
+        </div>
+    </div>
+
+    <header class="header">
+        <h1>Fundo Mágico</h1>
+        <p class="subtitle">Transforme suas ideias em backgrounds incríveis <b>com o poder da IA e do n8n.</b> Descreva o que você imagina e veja a magia acontecer.</p>
+    </header>
+    <main class="container">
+        <section class="card main-card">
+            <h2 class="card-header">Descreva o background que você deseja</h2>
+            <form class="form-group">
+                <textarea id="description"
+                    placeholder="Ex: um gradiente azul suave que vai do azul claro para o azul escuro"
+                    rows="5"></textarea>
+                <button id="generate-btn" class="btn-magic">
+                    <span id="btn-text">Gerar Background Mágico</span>
+                </button>
+            </form>
+        </section>
+        <section id="preview-section" class="preview-card"></section>
+        <section id="code-output" class="code-grid">
+            <div class="card code-card">
+                <h3 class="code-title">Código HTML</h3>
+                <pre id="html-code" class="code-block"></pre>
+            </div>
+            <div class="card code-card">
+                <h3 class="code-title">Código CSS</h3>
+                <pre id="css-code" class="code-block"></pre>
+            </div>
+        </section>
+    </main>
+
+    <script src="src/js/index.js"></script>
+    <script src="src/js/modal.js"></script>
+</body>
+
+</html>

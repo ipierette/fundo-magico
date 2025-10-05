@@ -1,0 +1,61 @@
+@media (max-width: 768px) {
+    .header h1 { 
+        font-size: 32px;
+    }
+
+    .header .subtitle {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .card-header {
+        font-size: 16px;
+    }
+
+    .code-grid {
+        flex-direction: column;
+    }
+
+    .code-card {
+        width: 100%;
+    }
+
+    .form-group .btn-magic {
+        font-size: 16px;
+    }
+
+    .n8n-button {
+        top: 10px;
+        left: 10px;
+        padding: 8px 12px;
+        font-size: 12px;
+        gap: 6px;
+    }
+
+    .n8n-icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    .modal-content {
+        margin: 2% auto;
+        padding: 20px;
+        width: 95%;
+        max-height: 90vh;
+    }
+
+    .modal-content h2 {
+        font-size: 20px;
+    }
+
+    .json-code {
+        font-size: 10px;
+        padding: 15px;
+        max-height: 300px;
+    }
+
+    .copy-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
